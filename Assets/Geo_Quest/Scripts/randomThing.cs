@@ -4,22 +4,25 @@ using Unity.Burst.Intrinsics;
 using UnityEngine;
 public class randomThing : MonoBehaviour
 {
-    float thing = 1.0f;
-    string variable1 = "Hello";
-    private int invert = -1;
-    // Start is called before the first frame update
     void Start()
     {
-        string variable2 = " World";
-        Debug.Log(variable1 + variable2);
-        Debug.Log(transform.position);
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
-        thing *= 1.01f;
-        Debug.Log(transform.position);
-        transform.position = new Vector3(thing, thing, thing);
+
+        float speed = 10;
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+        Vector3 direction = mousePosition - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+        float angleInRadians = angle * Mathf.Deg2Rad;
+        Vector3 moveAngle = new Vector3(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians), 0);
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += moveAngle * speed * Time.deltaTime;
+        }
     }
 }
