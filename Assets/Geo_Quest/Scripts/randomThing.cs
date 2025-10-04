@@ -19,7 +19,6 @@ public class randomThing : MonoBehaviour
     void Update()
     {
         thing *= 1.01f;
-        thing *= invert;
         Debug.Log(transform.position);
         transform.position = new Vector3(thing, thing, thing);
     }
