@@ -4,8 +4,9 @@ using Unity.Burst.Intrinsics;
 using UnityEngine;
 public class randomThing : MonoBehaviour
 {
-    float thing = 1;
+    float thing = (float)1.0;
     string variable1 = "Hello";
+    private int invert = -1;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class randomThing : MonoBehaviour
     void Update()
     {
         thing *= (float)1.01;
+        thing *= invert;
         Debug.Log(transform.position);
         transform.position = new Vector3(thing, thing, thing);
     }
