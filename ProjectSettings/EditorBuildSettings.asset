@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Geo_Quest/Scenes/Win.unity
     guid: b2204c34606cefe488255fb4093a42d2
+  - enabled: 1
+    path: Assets/Hands-On Homework #3/Scenes/HW3_Scene.unity
+    guid: f75dcdb9bf8a1cd45a73fee947bce6b7
+  - enabled: 1
+    path: Assets/Hands-On Homework #3/Scenes/House.unity
+    guid: 648f6abf7c7d14b48ae514397c207297
   m_configObjects: {}

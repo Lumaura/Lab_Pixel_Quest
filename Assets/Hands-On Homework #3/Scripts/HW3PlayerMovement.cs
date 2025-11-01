@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HW3PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class HW3PlayerMovement : MonoBehaviour
     private float _xVelocity = 0f;
     private float _yVelocity = 0f;
     public float speed = 3;
+    public string nextLevel = "nextLevel";
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +36,14 @@ public class HW3PlayerMovement : MonoBehaviour
 
         
         _rigRigidbody2D.velocity = new Vector2(_xVelocity, _yVelocity) * speed; 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Finish":
+                SceneManager.LoadScene(nextLevel);
+                break;
+        }
     }
 }
